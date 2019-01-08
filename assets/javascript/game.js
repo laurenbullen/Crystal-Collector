@@ -6,30 +6,32 @@
 // if the ending value is greater than the random result, we add one to the loss tally
 // if the ending value is equal to the random result, we add one to the win tally
 
-var randomResult = "";
-var wins = "";
-var loses = "";
-var yourScore = "";
+var randomResult = 0;
+var wins = 0;
+var loses = 0;
+var yourScore = 0;
 
 randomResult = Math.floor(Math.random() * 101) + 19;
 // console.log(randomResult);
 $("#result").html("Number to Match: " + randomResult);
 
+
 for (let i = 0; i < 4; i++) {
 
-    var random = Math.floor(Math.random() * 11) + 1;
-    var crystal = $("<div>");
-    crystal.attr({
-        "class": 'crystal',
-        "data-random": random
-    });
-    
-    $(".crystals").append(crystal);
-    
+    function getRandomNumber() {
+        return Math.floor(Math.random() * 12) + 1;
+    }
+    $(".crystal").each(function() { 
+        $(this).attr("data-random", getRandomNumber());
+    })
+
 }
 
 $(".crystal").on("click", function() {
-    console.log($(this).attr("data-random"));
+
+    var num = parseInt($(this).attr("data-random")) ;
+    yourScore += num;
+    console.log(yourScore)
 
 })
 
