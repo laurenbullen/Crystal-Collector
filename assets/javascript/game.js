@@ -11,9 +11,11 @@ var wins = 0;
 var loses = 0;
 var yourScore = 0;
 
+var resetAndStart = function (){
+$("#crystal").empty();
 randomResult = Math.floor(Math.random() * 101) + 19;
 // console.log(randomResult);
-$("#result").html("Number to Match: " + randomResult);
+$("#result").html("Goal Number: " + randomResult);
 
 
 for (let i = 0; i < 4; i++) {
@@ -24,14 +26,34 @@ for (let i = 0; i < 4; i++) {
     $(".crystal").each(function() { 
         $(this).attr("data-random", getRandomNumber());
     })
-
+ }
+ 
 }
 
-$(".crystal").on("click", function() {
+resetAndStart();
+
+// event delegation listening to the document, not the crystals. This is because crystal won't be recognized as the same element once a win or lose happens.
+$(document).on("click", ".crystal", function() {
 
     var num = parseInt($(this).attr("data-random")) ;
     yourScore += num;
     console.log(yourScore)
+    $("#your-score").html("Your Score: " + yourScore);
+    
+
+    if (yourScore > randomResult){
+        loses++;
+        $("#loses").html("Loses: " + loses);
+        yourScore = 0;
+        resetAndStart();
+    }
+
+    else if (yourScore === randomResult){
+        wins++;
+        $("#wins").html("Wins: " + wins);
+        yourScore = 0;
+        resetAndStart();
+    }
 
 })
 

@@ -3,6 +3,14 @@
 }
 
 .crystals {
-    padding-left: 15%;
+    padding-left: 16%;
     padding-top: 25px;
+}
+
+.crystal {
+    width: 50px;
+}
+
+.crystal:hover{
+    cursor: pointer;
 }
