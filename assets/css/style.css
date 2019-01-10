@@ -7,10 +7,22 @@
     padding-top: 25px;
 }
 
-.crystal {
-    width: 50px;
+h1 {
+    font-family: 'Major Mono Display', monospace;
+    font-family: 'Monoton', cursive;
+    color: white;
+    font-size: 50px;
 }
 
-.crystal:hover{
-    cursor: pointer;
+h2 {
+    font-family: 'Major Mono Display', monospace;  
+    font-weight: bold;
+}
+
+.jumbotron{
+    background-color:purple;
+}
+
+p {
+    color: white;
 }
