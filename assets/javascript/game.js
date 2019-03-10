@@ -46,7 +46,7 @@ $(document).on("click", ".crystal", function() {
 
     if (yourScore > randomResult){
         loses++;
-        $("#loses").html("Loses: " + loses);
+        $("#loses").html("Losses: " + loses);
         // resets the data value of yourScore 0 once a loss is added
         yourScore = 0;
         // changes display of "Your Score" to 0
